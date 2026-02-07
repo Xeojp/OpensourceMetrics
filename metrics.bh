@@ -24,14 +24,14 @@ NC='\033[0m' # No Color
 header() {
     clear
     echo -e "${CYAN}╔══════════════════════════════════════════════════════╗${NC}"
-    echo -e "${CYAN}║${NC} ${PURPLE}📊 METRICS АНАЛИЗА ОТКРЫТОГО ПРОЕКТА${NC} ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC} ${PURPLE}METRICS АНАЛИЗА ОТКРЫТОГО ПРОЕКТА${NC} ${CYAN}║${NC}"
     echo -e "${CYAN}║${NC} ${BLUE}$REPO${NC}                                        ${CYAN}║${NC}"
     echo -e "${CYAN}╚══════════════════════════════════════════════════════╝${NC}"
     echo
 }
 
 loading() {
-    echo -e "${YELLOW}🔄 Загрузка $1...${NC}"
+    echo -e "${YELLOW}Загрузка $1...${NC}"
 }
 
 progress_bar() {
@@ -76,7 +76,7 @@ progress_bar 2
 
 INFO=$(curl -s "https://api.github.com/repos/$REPO" | jq .)
 if [ "$INFO" = "null" ]; then
-    echo -e "${RED}❌ Репозиторий не найден!${NC}"
+    echo -e "${RED}Репозиторий не найден!${NC}"
     exit 1
 fi
 
@@ -140,7 +140,7 @@ print_kv "Лицензия" "$(echo "$INFO" | jq -r '.license?.name // "нет"'
 rm -rf /tmp/repo
 footer
 
-echo -e "${GREEN}Анализ завершён! Спасибо за то, что используете утилиту :)${NC}"
+echo -e "${GREEN}Анализ завершён! Спасибо за то, что используете утилиту, вот Вам смайл :)${NC}"
 echo -e "${CYAN}Метрики основаны на рекомендациях opensource.guide${NC}[web:7]"
 echo
 echo -e "${PURPLE}Проект жив, если:${NC}"
